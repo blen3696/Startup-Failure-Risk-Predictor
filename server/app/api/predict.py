@@ -2,15 +2,15 @@ from fastapi import APIRouter
 from app.models.schemas import StartupInput
 from app.models.ml_models import logistic_model, tree_model
 from app.services.risk import risk_label
-import pandas as pd  # <-- add this
+import pandas as pd  
 
 router = APIRouter(prefix="/predict", tags=["Prediction"])
 
 @router.post("/")
 def predict(input: StartupInput, model_name: str = "logistic"):
-    # Convert input to a DataFrame with correct column names
+
     data_dict = input.model_dump()
-    df = pd.DataFrame([data_dict])  # single-row DataFrame
+    df = pd.DataFrame([data_dict])  
 
     # Select model
     model = logistic_model if model_name == "logistic" else tree_model

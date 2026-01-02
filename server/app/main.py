@@ -5,7 +5,7 @@ from app.api.predict import router as predict_router
 
 origins = [
     "http://localhost:5173",  # Testing         
-    "https://startup-failure-risk-predictor.vercel.app/", 
+    "https://startup-failure-risk-predictor.vercel.app", 
 ]
 
 app = FastAPI(

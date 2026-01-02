@@ -1,6 +1,6 @@
-import axios from "axios";
+import { http } from "./http";
 
 export const predictFailure = async (payload) => {
-  const response = await axios.post("http://localhost:5000/predict", payload);
-  return response.data;
+  const { data } = await http.post("/predict/", payload);
+  return data;
 };
